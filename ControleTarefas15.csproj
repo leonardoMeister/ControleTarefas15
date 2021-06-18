@@ -125,9 +125,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ControleDao.DAO\ControleDao.DAO.csproj">
+    <ProjectReference Include="..\ControleDao.DAO\aControleDao.DAO.csproj">
       <Project>{d367e689-8395-400b-a753-77b988a5ab95}</Project>
-      <Name>ControleDao.DAO</Name>
+      <Name>aControleDao.DAO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
