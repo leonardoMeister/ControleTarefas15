@@ -125,13 +125,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ControleDao.DAO\aControleDao.DAO.csproj">
-      <Project>{d367e689-8395-400b-a753-77b988a5ab95}</Project>
-      <Name>aControleDao.DAO</Name>
-    </ProjectReference>
+    <Content Include="dbo.Table.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dbo.Table.sql" />
+    <ProjectReference Include="ControleDao.DAO\ControleDao.DAO.csproj">
+      <Project>{8a32fcf4-d3db-4c87-a1c1-f6b0a67ee70a}</Project>
+      <Name>ControleDao.DAO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
