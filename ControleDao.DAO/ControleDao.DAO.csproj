@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContatosDAO.cs" />
-    <Compile Include="TarefaDAO.cs" />
+    <Compile Include="DominioDAO\ContatosDAO.cs" />
+    <Compile Include="DominioDAO\GenericsDAO.cs" />
+    <Compile Include="Dominio\Contato.cs" />
+    <Compile Include="Dominio\DominioBase.cs" />
+    <Compile Include="Dominio\Tarefa.cs" />
+    <Compile Include="DominioDAO\TarefaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

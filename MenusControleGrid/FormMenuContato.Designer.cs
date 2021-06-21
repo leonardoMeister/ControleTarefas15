@@ -88,7 +88,7 @@ namespace ControleTarefas15
             this.btn_busca.TabIndex = 10;
             this.btn_busca.Text = "Pesquisar Cargo";
             this.btn_busca.UseVisualStyleBackColor = true;
-            this.btn_busca.Click += new System.EventHandler(this.button1_Click);
+            this.btn_busca.Click += new System.EventHandler(this.Pesquisa_Click);
             // 
             // FormMenuContato
             // 

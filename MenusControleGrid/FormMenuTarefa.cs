@@ -49,7 +49,12 @@ namespace ControleTarefas15
         {
             tarefa = new Tarefa
             {
-                Prioridade = busca
+                Prioridade = busca,
+                DataConclusao = DateTime.Now,
+                DataCriacao = DateTime.Now,
+                Id = 0,
+                Percentual = "",
+                Titulo = ""
             };
             DataTable tb = daoTarefa.SelectDbProvider(tarefa);
             AtualizarGrid(tb);
@@ -92,7 +97,6 @@ namespace ControleTarefas15
                 dataGridDados.Columns.Clear();
             }
         }
-
 
     }
 }

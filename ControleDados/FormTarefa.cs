@@ -60,7 +60,7 @@ namespace ControleTarefas15
                 comboBoxPercentual.Enabled = false;
             }
         }
-        private string VerificarCampos()
+        private string ValidarCampos()
         {
             if (textBoxTitulo.Text == "") return "Titulo Vazio";
             if (comboBoxPrioridade.SelectedItem == null) return "Nenhuma Prioridade Selecionada";
@@ -68,19 +68,21 @@ namespace ControleTarefas15
             if (dateConclucao.Text == dateCriacao.Text) return "Datas Não Podem Ser Iguais";
             return "Valido";
         }
+
         private void Btn_salvar_Click(object sender, EventArgs e)
         {
-            if (VerificarCampos() == "Valido")
+            if (ValidarCampos() == "Valido")
             {
                 ColetarDadosTarefaECriarObjeto();
-                daoTarefa.EditarDbProvider(tarefa);
+                daoTarefa.SaveDbProvider(tarefa);
                 this.Close();
             }
+            else MessageBox.Show(ValidarCampos());
         }
 
         private void Btn_remover_Click(object sender, EventArgs e)
         {
-            if (VerificarCampos() == "Valido")
+            if (ValidarCampos() == "Valido")
             {
                 ColetarDadosTarefaECriarObjeto();
                 daoTarefa.RemoverDbProvider(tarefa);
@@ -90,15 +92,14 @@ namespace ControleTarefas15
 
         private void Btn_adicionar_Click(object sender, EventArgs e)
         {
-            if (VerificarCampos() == "Valido")
+            if (ValidarCampos() == "Valido")
             {
                 ColetarDadosTarefaECriarObjeto();
                 daoTarefa.InsertDbProvider(tarefa);
                 this.Close();
             }
-            else MessageBox.Show(VerificarCampos());
+            else MessageBox.Show(ValidarCampos());
         }
-
         private void ColetarDadosTarefaECriarObjeto()
         {
             tarefa = new Tarefa

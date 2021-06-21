@@ -12,7 +12,7 @@ namespace ControleTarefas15
         {
             InitializeComponent();
             daoContato = new ContatosDAO();
-            DataTable tb = daoContato.SelectEbProvider();
+            DataTable tb = daoContato.SelectDbProvider();
             AtualizarDataGrid(tb);
         }
 
@@ -20,7 +20,7 @@ namespace ControleTarefas15
         {
             FormContato formContato = new FormContato();
             formContato.ShowDialog();
-            DataTable tb = daoContato.SelectEbProvider();
+            DataTable tb = daoContato.SelectDbProvider();
             AtualizarDataGrid(tb);
         }
 
@@ -35,8 +35,6 @@ namespace ControleTarefas15
             dataGridDados.DataSource = tb;
             dataGridDados.Refresh();
         }
-
-
 
         private void dataGridDados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -54,12 +52,12 @@ namespace ControleTarefas15
                 FormContato formContato = new FormContato(contato);
                 formContato.ShowDialog();
                 dataGridDados.Columns.Clear();
-                DataTable tb = daoContato.SelectEbProvider();
+                DataTable tb = daoContato.SelectDbProvider();
                 AtualizarDataGrid(tb);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Pesquisa_Click(object sender, EventArgs e)
         {
             DataTable tb = daoContato.SelectEbProviderPorCargo(mk_pesquisa.Text);
             AtualizarDataGrid(tb);

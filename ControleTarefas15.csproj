@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControleDadosDAO\FormContato.cs">
+    <Compile Include="ControleDados\FormContato.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ControleDadosDAO\FormContato.Designer.cs">
+    <Compile Include="ControleDados\FormContato.Designer.cs">
       <DependentUpon>FormContato.cs</DependentUpon>
     </Compile>
     <Compile Include="MenusControleGrid\FormMenuContato.cs">
@@ -70,10 +70,10 @@
     <Compile Include="FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControleDadosDAO\FormTarefa.cs">
+    <Compile Include="ControleDados\FormTarefa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ControleDadosDAO\FormTarefa.Designer.cs">
+    <Compile Include="ControleDados\FormTarefa.Designer.cs">
       <DependentUpon>FormTarefa.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -84,7 +84,7 @@
     <Compile Include="UserControlBTN.Designer.cs">
       <DependentUpon>UserControlBTN.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ControleDadosDAO\FormContato.resx">
+    <EmbeddedResource Include="ControleDados\FormContato.resx">
       <DependentUpon>FormContato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenusControleGrid\FormMenuContato.resx">
@@ -96,7 +96,7 @@
     <EmbeddedResource Include="FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControleDadosDAO\FormTarefa.resx">
+    <EmbeddedResource Include="ControleDados\FormTarefa.resx">
       <DependentUpon>FormTarefa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

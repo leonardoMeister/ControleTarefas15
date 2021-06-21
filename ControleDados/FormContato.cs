@@ -61,12 +61,8 @@ namespace ControleTarefas15
             return "Valido";
         }
 
-
-
         private void CriarContatoComDadosTela()
         {
-
-
             contato = new Contato
             {
                 Cargo = textBoxCargo.Text,
