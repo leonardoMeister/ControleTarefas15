@@ -60,31 +60,20 @@ namespace ControleTarefas15
                 comboBoxPercentual.Enabled = false;
             }
         }
-        private string ValidarCampos()
-        {
-            if (textBoxTitulo.Text == "") return "Titulo Vazio";
-            if (comboBoxPrioridade.SelectedItem == null) return "Nenhuma Prioridade Selecionada";
-            if (comboBoxPercentual.SelectedItem == null) return "Nenhum Percentual Selecionado";
-            if (dateConclucao.Text == dateCriacao.Text) return "Datas Não Podem Ser Iguais";
-            return "Valido";
-        }
 
         private void Btn_salvar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos() == "Valido")
+            if (ValizacoesPreenchimentoOBJ())
             {
-                ColetarDadosTarefaECriarObjeto();
                 daoTarefa.SaveDbProvider(tarefa);
                 this.Close();
             }
-            else MessageBox.Show(ValidarCampos());
         }
 
         private void Btn_remover_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos() == "Valido")
+            if (ValizacoesPreenchimentoOBJ())
             {
-                ColetarDadosTarefaECriarObjeto();
                 daoTarefa.RemoverDbProvider(tarefa);
                 this.Close();
             }
@@ -92,25 +81,50 @@ namespace ControleTarefas15
 
         private void Btn_adicionar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos() == "Valido")
+            if (ValizacoesPreenchimentoOBJ())
             {
-                ColetarDadosTarefaECriarObjeto();
                 daoTarefa.InsertDbProvider(tarefa);
                 this.Close();
             }
-            else MessageBox.Show(ValidarCampos());
         }
-        private void ColetarDadosTarefaECriarObjeto()
+
+        private bool ValizacoesPreenchimentoOBJ()
         {
-            tarefa = new Tarefa
+            string auxValidar = ColetarDadosTarefaECriarObjeto();
+            if (auxValidar == "") auxValidar += tarefa.ValidarCampos();
+
+            if (auxValidar == "Valido")
             {
-                DataConclusao = dateConclucao.Value,
-                DataCriacao = dateCriacao.Value,
-                Id = Convert.ToInt32( mk_id.Text),
-                Percentual = comboBoxPercentual.SelectedItem.ToString(),
-                Prioridade = comboBoxPrioridade.SelectedItem.ToString(),
-                Titulo = textBoxTitulo.Text
-            };
+                return true;
+            }
+            else MessageBox.Show(auxValidar);
+            return false;
+        }
+        private string ColetarDadosTarefaECriarObjeto()
+        {
+            string auxValidar = ValidarComboBoxNull();
+            if (auxValidar == "")
+            {
+                tarefa = new Tarefa
+                {
+                    DataConclusao = dateConclucao.Value,
+                    DataCriacao = dateCriacao.Value,
+                    Id = Convert.ToInt32(mk_id.Text),
+                    Percentual = comboBoxPercentual.SelectedItem.ToString(),
+                    Prioridade = comboBoxPrioridade.SelectedItem.ToString(),
+                    Titulo = textBoxTitulo.Text
+                };
+                return "";
+            }
+            else return auxValidar;
+        }
+        private string ValidarComboBoxNull()
+        {
+            string auxValidar = "";
+            if (comboBoxPercentual.SelectedItem == null) auxValidar += "Selecione Um Percentual.";
+            if (comboBoxPrioridade.SelectedItem == null) auxValidar += "Selecione Uma Prioridade.";
+            if (auxValidar == "") return "";
+            return auxValidar;
         }
     }
 }

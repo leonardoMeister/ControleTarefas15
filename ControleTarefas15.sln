@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleTarefas15", "ControleTarefas15.csproj", "{56F65C05-8BA6-4DBB-B924-3A5BB27152C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleTarefas.Forms", "ControleTarefas.Forms.csproj", "{56F65C05-8BA6-4DBB-B924-3A5BB27152C9}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BancoDeDados.ProjetoDb", "BancoDeDados.ProjetoDb\BancoDeDados.ProjetoDb.sqlproj", "{66547918-7793-4183-BD82-9C731D27BCBA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleDao.DAO", "ControleDao.DAO\ControleDao.DAO.csproj", "{8A32FCF4-D3DB-4C87-A1C1-F6B0A67EE70A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleTarefas.Test", "ControleTarefasTestes\ControleTarefas.Test.csproj", "{24B2CE5A-C868-4554-ABC5-0D3630F0D789}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{8A32FCF4-D3DB-4C87-A1C1-F6B0A67EE70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A32FCF4-D3DB-4C87-A1C1-F6B0A67EE70A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A32FCF4-D3DB-4C87-A1C1-F6B0A67EE70A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24B2CE5A-C868-4554-ABC5-0D3630F0D789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24B2CE5A-C868-4554-ABC5-0D3630F0D789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24B2CE5A-C868-4554-ABC5-0D3630F0D789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24B2CE5A-C868-4554-ABC5-0D3630F0D789}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -192,18 +192,18 @@ namespace ControleTarefas15
         #endregion
 
         private System.Windows.Forms.GroupBox gpTarefas;
-        private System.Windows.Forms.TextBox mk_id;
         private System.Windows.Forms.Label labelId;
-        private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Label labelNome;
         private UserControlBTN userControlBTN;
-        private System.Windows.Forms.TextBox textBoxCargo;
         private System.Windows.Forms.Label labelCargo;
-        private System.Windows.Forms.TextBox textBoxEmpresa;
         private System.Windows.Forms.Label labelEmpresa;
         private System.Windows.Forms.Label labelTelefone;
-        private System.Windows.Forms.MaskedTextBox mk_telefone;
-        private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label labelEmail;
+        public System.Windows.Forms.TextBox mk_id;
+        public System.Windows.Forms.TextBox textBoxNome;
+        public System.Windows.Forms.TextBox textBoxCargo;
+        public System.Windows.Forms.TextBox textBoxEmpresa;
+        public System.Windows.Forms.MaskedTextBox mk_telefone;
+        public System.Windows.Forms.TextBox textBoxEmail;
     }
 }

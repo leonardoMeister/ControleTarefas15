@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ControleDao.DAO;
 using System.Windows.Forms;
 
@@ -48,22 +41,13 @@ namespace ControleTarefas15
             mk_telefone.Text = contato.Telefone;
         }
 
-        private string ValidarCampos()
-        {
-            if (textBoxNome.Text == "") return "Campo Nome Vazio";
-            if (textBoxEmpresa.Text == "") return "Campo Empresa Vazio";
-            if (textBoxEmail.Text == "") return "Campo Email Vazio";
-            if (textBoxCargo.Text == "") return "Campo Cargo Vazio";
-            if (mk_telefone.Text == "") return "Campo Telefone Vazio";
-            if (!ValidarEmail()) return "Email Invalido!";
-            if (mk_telefone.Text.Length <= 9) return "Telefone Invalido!";
-
-            return "Valido";
-        }
-
         private void CriarContatoComDadosTela()
         {
-            contato = new Contato
+            contato = GerarContato();
+        }
+        public Contato GerarContato()
+        {
+            Contato x = new Contato
             {
                 Cargo = textBoxCargo.Text,
                 Email = textBoxEmail.Text,
@@ -72,49 +56,44 @@ namespace ControleTarefas15
                 Id = Convert.ToInt32(mk_id.Text),
                 Telefone = mk_telefone.Text
             };
-        }
-
-        private bool ValidarEmail()
-        {
-            bool arroba = false, ponto = false;
-            foreach (char letra in textBoxEmail.Text)
-            {
-                if (letra == '@') arroba = true;
-                if (letra == '.') ponto = true;
-            }
-            if (arroba && ponto) return true;
-            return false;
+            return x;
         }
 
         private void Btn_salvar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos() == "Valido")
+            CriarContatoComDadosTela();
+            string auxValidacao = contato.ValidarCampos();
+            if (auxValidacao == "Valido")
             {
-                CriarContatoComDadosTela();
                 daoContato.SaveDbProvider(contato);
                 this.Close();
             }
+            else MessageBox.Show(auxValidacao);
+
         }
 
         private void Btn_remover_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos() == "Valido")
+            CriarContatoComDadosTela();
+            string auxValidacao = contato.ValidarCampos();
+            if (auxValidacao == "Valido")
             {
-                CriarContatoComDadosTela();
                 daoContato.RemoverDbProvider(contato);
                 this.Close();
             }
+            else MessageBox.Show(auxValidacao);
         }
 
         private void Btn_adicionar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos() == "Valido")
+            CriarContatoComDadosTela();
+            string auxValidacao = contato.ValidarCampos();
+            if (auxValidacao == "Valido")
             {
-                CriarContatoComDadosTela();
                 daoContato.InsertDbProvider(contato);
                 this.Close();
             }
-            else MessageBox.Show(ValidarCampos());
+            else MessageBox.Show(auxValidacao);
         }
     }
 }
