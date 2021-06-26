@@ -9,6 +9,11 @@ namespace ControleDao.DAO
         public string Nome { get; set; }
         public string Telefone { get; set; }
 
+        public override string ToString()
+        {
+            return $"Nome: {Nome}, Telefone: {Telefone}";
+        }
+
         public string ValidarCampos()
         {
             string auxValidacao = "";

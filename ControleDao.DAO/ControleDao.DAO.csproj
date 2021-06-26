@@ -41,13 +41,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbControleTarefasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbControleTarefasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DominioDAO\CompromissoDAO.cs" />
     <Compile Include="DominioDAO\ContatosDAO.cs" />
-    <Compile Include="DominioDAO\GenericsDAO.cs" />
+    <Compile Include="DominioDAO\BaseDAO.cs" />
+    <Compile Include="Dominio\Compromisso.cs" />
     <Compile Include="Dominio\Contato.cs" />
     <Compile Include="Dominio\DominioBase.cs" />
     <Compile Include="Dominio\Tarefa.cs" />
     <Compile Include="DominioDAO\TarefaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DbControleTarefasDataSet.xsc">
+      <DependentUpon>DbControleTarefasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DbControleTarefasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DbControleTarefasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DbControleTarefasDataSet.xss">
+      <DependentUpon>DbControleTarefasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

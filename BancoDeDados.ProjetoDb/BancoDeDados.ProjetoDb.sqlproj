@@ -128,5 +128,9 @@
     </Build>
     <Build Include="Security\Permissions.sql" />
     <Build Include="dbo\Tables\tb_contatos.sql" />
+    <Build Include="dbo\Tables\tb_compromisso.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
 </Project>

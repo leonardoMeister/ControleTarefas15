@@ -32,6 +32,7 @@ namespace ControleTarefas15
             this.btn_tarefas = new System.Windows.Forms.Button();
             this.btn_contatos = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_compromissos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_tarefas
@@ -69,12 +70,25 @@ namespace ControleTarefas15
             this.label1.TabIndex = 2;
             this.label1.Text = "Escolha Sua Opção";
             // 
+            // btn_compromissos
+            // 
+            this.btn_compromissos.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_compromissos.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_compromissos.Location = new System.Drawing.Point(58, 331);
+            this.btn_compromissos.Name = "btn_compromissos";
+            this.btn_compromissos.Size = new System.Drawing.Size(223, 132);
+            this.btn_compromissos.TabIndex = 3;
+            this.btn_compromissos.Text = "Controle Compromissos";
+            this.btn_compromissos.UseVisualStyleBackColor = false;
+            this.btn_compromissos.Click += new System.EventHandler(this.btn_compromissos_Click);
+            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(349, 444);
+            this.ClientSize = new System.Drawing.Size(349, 529);
+            this.Controls.Add(this.btn_compromissos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_contatos);
             this.Controls.Add(this.btn_tarefas);
@@ -91,5 +105,6 @@ namespace ControleTarefas15
         private System.Windows.Forms.Button btn_tarefas;
         private System.Windows.Forms.Button btn_contatos;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_compromissos;
     }
 }

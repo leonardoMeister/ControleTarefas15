@@ -22,15 +22,6 @@ namespace ControleTarefas15
             AtualizarTela(contatoAux);
             userControlBTN.btn_adicionar.Enabled = false;
         }
-        private void Eventos()
-        {
-            userControlBTN.btn_adicionar.Click += Btn_adicionar_Click;
-            userControlBTN.btn_remover.Click += Btn_remover_Click;
-            userControlBTN.btn_salvar.Click += Btn_salvar_Click;
-            mk_id.Text = "0";
-            daoContato = new ContatosDAO();
-        }
-
         private void AtualizarTela(Contato contato)
         {
             mk_id.Text = Convert.ToString(contato.Id);
@@ -40,6 +31,17 @@ namespace ControleTarefas15
             textBoxNome.Text = contato.Nome;
             mk_telefone.Text = contato.Telefone;
         }
+
+        private void Eventos()
+        {
+            userControlBTN.btn_adicionar.Click += Btn_adicionar_Click;
+            userControlBTN.btn_remover.Click += Btn_remover_Click;
+            userControlBTN.btn_salvar.Click += Btn_salvar_Click;
+            mk_id.Text = "0";
+            daoContato = new ContatosDAO();
+        }
+
+
 
         private void CriarContatoComDadosTela()
         {
@@ -71,7 +73,6 @@ namespace ControleTarefas15
             else MessageBox.Show(auxValidacao);
 
         }
-
         private void Btn_remover_Click(object sender, EventArgs e)
         {
             CriarContatoComDadosTela();

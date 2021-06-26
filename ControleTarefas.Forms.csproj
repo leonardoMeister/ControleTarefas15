@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControleDados\FormCompromissos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControleDados\FormCompromissos.Designer.cs">
+      <DependentUpon>FormCompromissos.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControleDados\FormContato.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ControleDados\FormContato.Designer.cs">
       <DependentUpon>FormContato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenusControleGrid\FormMenuCompromissos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenusControleGrid\FormMenuCompromissos.Designer.cs">
+      <DependentUpon>FormMenuCompromissos.cs</DependentUpon>
     </Compile>
     <Compile Include="MenusControleGrid\FormMenuContato.cs">
       <SubType>Form</SubType>
@@ -84,8 +96,14 @@
     <Compile Include="UserControlBTN.Designer.cs">
       <DependentUpon>UserControlBTN.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ControleDados\FormCompromissos.resx">
+      <DependentUpon>FormCompromissos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControleDados\FormContato.resx">
       <DependentUpon>FormContato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenusControleGrid\FormMenuCompromissos.resx">
+      <DependentUpon>FormMenuCompromissos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenusControleGrid\FormMenuContato.resx">
       <DependentUpon>FormMenuContato.cs</DependentUpon>

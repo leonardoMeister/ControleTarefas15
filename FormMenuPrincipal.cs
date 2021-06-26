@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ControleTarefas15.MenusControleGrid;
 
 namespace ControleTarefas15
 {
@@ -26,6 +20,12 @@ namespace ControleTarefas15
         private void btn_contatos_Click(object sender, EventArgs e)
         {
             FormMenuContato formMenuContato = new FormMenuContato();
+            formMenuContato.ShowDialog();
+        }
+
+        private void btn_compromissos_Click(object sender, EventArgs e)
+        {
+            FormMenuCompromissos formMenuContato = new FormMenuCompromissos();
             formMenuContato.ShowDialog();
         }
     }
