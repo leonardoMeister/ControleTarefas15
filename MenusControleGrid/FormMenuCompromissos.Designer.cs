@@ -35,6 +35,9 @@ namespace ControleTarefas15.MenusControleGrid
             this.dataDefinida = new System.Windows.Forms.DateTimePicker();
             this.btn_hoje = new System.Windows.Forms.Button();
             this.btn_semana = new System.Windows.Forms.Button();
+            this.btn_futuro = new System.Windows.Forms.Button();
+            this.btn_passado = new System.Windows.Forms.Button();
+            this.btn_todosDados = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,11 +105,44 @@ namespace ControleTarefas15.MenusControleGrid
             this.btn_semana.UseVisualStyleBackColor = true;
             this.btn_semana.Click += new System.EventHandler(this.btn_semana_Click);
             // 
+            // btn_futuro
+            // 
+            this.btn_futuro.Location = new System.Drawing.Point(12, 71);
+            this.btn_futuro.Name = "btn_futuro";
+            this.btn_futuro.Size = new System.Drawing.Size(157, 46);
+            this.btn_futuro.TabIndex = 16;
+            this.btn_futuro.Text = "Pesquisar Futuro";
+            this.btn_futuro.UseVisualStyleBackColor = true;
+            this.btn_futuro.Click += new System.EventHandler(this.btn_futuro_Click);
+            // 
+            // btn_passado
+            // 
+            this.btn_passado.Location = new System.Drawing.Point(12, 122);
+            this.btn_passado.Name = "btn_passado";
+            this.btn_passado.Size = new System.Drawing.Size(157, 46);
+            this.btn_passado.TabIndex = 17;
+            this.btn_passado.Text = "Pesquisar Passado";
+            this.btn_passado.UseVisualStyleBackColor = true;
+            this.btn_passado.Click += new System.EventHandler(this.btn_passado_Click);
+            // 
+            // btn_todosDados
+            // 
+            this.btn_todosDados.Location = new System.Drawing.Point(639, 5);
+            this.btn_todosDados.Name = "btn_todosDados";
+            this.btn_todosDados.Size = new System.Drawing.Size(141, 38);
+            this.btn_todosDados.TabIndex = 18;
+            this.btn_todosDados.Text = "Todos Dados";
+            this.btn_todosDados.UseVisualStyleBackColor = true;
+            this.btn_todosDados.Click += new System.EventHandler(this.btn_todosDados_Click);
+            // 
             // FormMenuCompromissos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_todosDados);
+            this.Controls.Add(this.btn_passado);
+            this.Controls.Add(this.btn_futuro);
             this.Controls.Add(this.btn_semana);
             this.Controls.Add(this.btn_hoje);
             this.Controls.Add(this.dataDefinida);
@@ -129,5 +165,8 @@ namespace ControleTarefas15.MenusControleGrid
         private System.Windows.Forms.DateTimePicker dataDefinida;
         private System.Windows.Forms.Button btn_hoje;
         private System.Windows.Forms.Button btn_semana;
+        private System.Windows.Forms.Button btn_futuro;
+        private System.Windows.Forms.Button btn_passado;
+        private System.Windows.Forms.Button btn_todosDados;
     }
 }

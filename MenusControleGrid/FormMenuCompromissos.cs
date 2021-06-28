@@ -15,13 +15,8 @@ namespace ControleTarefas15.MenusControleGrid
         {
             InitializeComponent();
             daoCompromisso = new CompromissoDAO();
-            AtualizarGrid(daoCompromisso.SelectDbProvider());
-        }
 
-        private void btn_compromisso_Click(object sender, EventArgs e)
-        {
-            FormCompromissos formCompromissos = new FormCompromissos();
-            formCompromissos.ShowDialog();
+            AtualizarGrid(daoCompromisso.SelectDbProvider());
         }
 
         private void dataGridDados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -41,25 +36,10 @@ namespace ControleTarefas15.MenusControleGrid
                 };
                 FormCompromissos formCompromissos = new FormCompromissos(compromisso);
                 formCompromissos.ShowDialog();
+
                 dataGridDados.Columns.Clear();
-                DataTable tb = daoCompromisso.SelectDbProvider();
-                AtualizarGrid(tb);
+                AtualizarGrid(daoCompromisso.SelectDbProvider());
             }
-        }
-
-        private void btn_dataDefinida_Click(object sender, EventArgs e)
-        {
-            DateTime data = dataDefinida.Value;
-        }
-
-        private void btn_semana_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_hoje_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void AtualizarGrid(DataTable table)
@@ -73,5 +53,52 @@ namespace ControleTarefas15.MenusControleGrid
             dataGridDados.DataSource = table;
             dataGridDados.Refresh();
         }
+
+        #region EVENTOS DE BTN TELA
+
+        private void btn_compromisso_Click(object sender, EventArgs e)
+        {
+            FormCompromissos formCompromissos = new FormCompromissos();
+            formCompromissos.ShowDialog();
+
+            dataGridDados.Columns.Clear();
+            AtualizarGrid(daoCompromisso.SelectDbProvider());
+        }
+
+        private void btn_dataDefinida_Click(object sender, EventArgs e)
+        {
+            DateTime dataPegadoDaTela = new DateTime(dataDefinida.Value.Year, dataDefinida.Value.Month, dataDefinida.Value.Day, 23, 59, 59);
+            AtualizarGrid(daoCompromisso.SelectDbProviderPorData(dataPegadoDaTela));
+        }
+
+        private void btn_semana_Click(object sender, EventArgs e)
+        {
+            DateTime dataParaLerSemana = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59).AddDays(7);
+            AtualizarGrid(daoCompromisso.SelectDbProviderPorData(dataParaLerSemana));
+        }
+
+        private void btn_hoje_Click(object sender, EventArgs e)
+        {
+            DateTime dataParaLerDia = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
+            AtualizarGrid(daoCompromisso.SelectDbProviderPorData(dataParaLerDia));
+        }
+
+        private void btn_passado_Click(object sender, EventArgs e)
+        {
+            AtualizarGrid(daoCompromisso.SelectDbProviderPassadoDataAtual());
+        }
+
+        private void btn_futuro_Click(object sender, EventArgs e)
+        {
+            AtualizarGrid(daoCompromisso.SelectDbProviderFuturoDataAtual());
+        }
+
+        private void btn_todosDados_Click(object sender, EventArgs e)
+        {
+            AtualizarGrid(daoCompromisso.SelectDbProvider());
+        }
+
+        #endregion
+
     }
 }

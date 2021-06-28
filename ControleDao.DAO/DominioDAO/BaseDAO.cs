@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace ControleDao.DAO
@@ -35,13 +36,18 @@ namespace ControleDao.DAO
             comandoSelecao.Connection = conexaoComBanco;             
 
             comandoSelecao.CommandText = sqlSelecao;
+            GerarParametrosPesquisa(comandoSelecao);
 
-             var sdr = comandoSelecao.ExecuteReader();
+            var sdr = comandoSelecao.ExecuteReader();
             DataTable linhas = new DataTable();
             linhas.Load(sdr);
             conexaoComBanco.Close();
             return linhas;
         }
 
+        protected virtual void GerarParametrosPesquisa(SqlCommand comandoSelecao)
+        {
+
+        }
     }
 }

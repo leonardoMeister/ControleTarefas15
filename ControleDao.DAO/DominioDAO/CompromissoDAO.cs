@@ -9,21 +9,60 @@ namespace ControleDao.DAO.DominioDAO
     public class CompromissoDAO : GenericsDAO
     {
         Compromisso Compromisso;
+        private DateTime dataAtual;
+        private DateTime dataPesquisa;
 
         public CompromissoDAO()
         {
+            dataAtual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            dataPesquisa = DateTime.Now;
             enderecoDBEmpresa = @"Data Source=(LocalDb)\MSSqlLocalDB;Initial Catalog=DbControleTarefas;Integrated Security=True;Pooling=False";
         }
 
-        public DataTable SelectEbProviderPorCargo(string filtro)
+        #region COMANDOS PERSONALIZADOS
+        public DataTable SelectDbProviderPorData(DateTime dataDefinidaPesquisa)
         {
-            string auxFiltro = "%" + filtro + "%";
-            string sqlSelecao = $@"SELECT [ID_COMPROMISSO], [ASSUNTO], [CONTATO_ID], [DATA_COMPROMISSO] , [DATA_TERMINO], [local_compromisso],[TIPO_COMPROMISSO],[LINK_COMPROMISSO] FROM TB_COMPROMISSO WHERE CARGO LIKE  '{auxFiltro}' ";
-
+            string sqlSelecao = $@"SELECT 
+                                        [ID_COMPROMISSO], [ASSUNTO], [CONTATO_ID], [DATA_COMPROMISSO] ,
+                                        [DATA_TERMINO], [local_compromisso],[TIPO_COMPROMISSO],[LINK_COMPROMISSO]
+                                   FROM 
+                                        TB_COMPROMISSO
+                                   WHERE
+                                        DATA_COMPROMISSO
+                                  BETWEEN
+                                        @DATANOW 
+                                  AND
+                                        @DATAPESQUISA ;";
+            this.dataPesquisa = dataDefinidaPesquisa;
             return DbExecuteReader(sqlSelecao);
         }
+        public DataTable SelectDbProviderFuturoDataAtual()
+        {
+            string sqlSelecao = $@"SELECT 
+                                        [ID_COMPROMISSO], [ASSUNTO], [CONTATO_ID], [DATA_COMPROMISSO] ,
+                                        [DATA_TERMINO], [local_compromisso],[TIPO_COMPROMISSO],[LINK_COMPROMISSO]
+                                   FROM 
+                                        TB_COMPROMISSO
+                                   WHERE
+                                        DATA_COMPROMISSO  >  @DATAPESQUISA;";
+            dataPesquisa = DateTime.Now;
+            return DbExecuteReader(sqlSelecao);
+        }
+        public DataTable SelectDbProviderPassadoDataAtual()
+        {
+            string sqlSelecao = $@"SELECT 
+                                        [ID_COMPROMISSO], [ASSUNTO], [CONTATO_ID], [DATA_COMPROMISSO] ,
+                                        [DATA_TERMINO], [local_compromisso],[TIPO_COMPROMISSO],[LINK_COMPROMISSO]
+                                   FROM 
+                                        TB_COMPROMISSO
+                                   WHERE
+                                        DATA_COMPROMISSO  <  @DATAPESQUISA;";
+            dataPesquisa = DateTime.Now;
+            return DbExecuteReader(sqlSelecao);
+        }
+        #endregion
 
-        #region REGIÃO DE COMANDOS SQL PADRÃO
+        #region REGIÃO DE COMANDOS SQL PADRÃO QUE PODEM VIRAR GENERICO
         public void RemoverDbProvider(Compromisso compromisso)
         {
             string sqlSelecao = @"DELETE FROM TB_COMPROMISSO                               
@@ -62,6 +101,12 @@ namespace ControleDao.DAO.DominioDAO
         }
         #endregion
 
+        #region PARAMETROS PARA BANCO
+        protected override void GerarParametrosPesquisa(SqlCommand comandoSelecao)
+        {
+            comandoSelecao.Parameters.AddWithValue("DATANOW", dataAtual);
+            comandoSelecao.Parameters.AddWithValue("DATAPESQUISA", dataPesquisa);
+        }
         protected override void GerarParametrosInserir(SqlCommand comandoSelecao)
         {
             comandoSelecao.Parameters.AddWithValue("ID_COMPROMISSO", Compromisso.Id);
@@ -72,6 +117,9 @@ namespace ControleDao.DAO.DominioDAO
             comandoSelecao.Parameters.AddWithValue("LINK_COMPROMISSO", Compromisso.Link);
             comandoSelecao.Parameters.AddWithValue("local_compromisso", Compromisso.Local);
             comandoSelecao.Parameters.AddWithValue("TIPO_COMPROMISSO", Compromisso.Tipo);
+
         }
+        #endregion
+
     }
 }
