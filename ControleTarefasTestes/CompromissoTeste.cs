@@ -51,7 +51,7 @@ namespace ControleTarefasTestes
             string auxValidacao = "";
             auxValidacao += compromisso.ValidarCampos();
 
-            Assert.AreEqual(auxValidacao, "Local Vazio\n");
+            Assert.AreEqual(auxValidacao, "Local Vazio\n"); 
         }
         [TestMethod]
         public void DeverRetornarLinkDeveSerVazio()
